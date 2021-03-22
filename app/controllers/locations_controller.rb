@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :set_location, only: %i[ show edit update destroy ]
+  before_action :set_location, only: %i[ show edit update destroy refresh ]
 
   # GET /locations or /locations.json
   def index
@@ -55,6 +55,11 @@ class LocationsController < ApplicationController
       format.html { redirect_to locations_url, notice: "Location was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def refresh
+    SaveWeather.new(location: @location).call
+    redirect_to location_path(@location)
   end
 
   private
