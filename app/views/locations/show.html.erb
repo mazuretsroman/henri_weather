@@ -1,19 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @location.description %></h5>
+    <p class="card-text"><%= @weather.description %></p>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Temp: </strong><%= @weather.temp %></li>
+      <li class="list-group-item"><strong>Min: </strong><%= @weather.temp_min %></li>
+      <li class="list-group-item"><strong>Max: </strong><%= @weather.temp_max %></li>
+      <li class="list-group-item"><strong>Avg: </strong><%= @weather.temp_avg %></li>
+    </ul>
 
-<p>
-  <strong>Description:</strong>
-  <%= @location.description %>
-</p>
+    <div class="card-body">
+      <%#= link_to 'Refresh', refresh_location_path(@location), class: 'card-link' %>
+      <%= link_to 'Fahrenheit / Celcius', '#', class: 'card-link' %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Country:</strong>
-  <%= @location.country %>
-</p>
 
-<p>
-  <strong>Zip code:</strong>
-  <%= @location.zip_code %>
-</p>
 
-<%= link_to 'Edit', edit_location_path(@location) %> |
-<%= link_to 'Back', locations_path %>
+
+
+<!--<p id="notice"><%#= notice %></p>-->
+
+<!--<p>-->
+<!--  <strong>Description:</strong>-->
+  <%#= @location.description %>
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>Country:</strong>-->
+  <%#= @location.country_code %>
+<!--</p>-->
+
+<!--<p>-->
+<!--  <strong>Zip code:</strong>-->
+  <%#= @location.zip_code %>
+<!--</p>-->
+
+<!--<%#= link_to 'Edit', edit_location_path(@location) %> |-->
+<%#= link_to 'Back', locations_path %>
