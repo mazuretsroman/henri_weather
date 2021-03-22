@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_100741) do
 
   create_table "locations", force: :cascade do |t|
     t.string "description"
-    t.string "country"
+    t.string "country_code"
     t.string "zip_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -5,6 +5,6 @@ DatabaseCleaner.clean
 
 Location.create!(
   description: 'Kyiv, Ukraine',
-  country: 'UA',
+  country_code: 'UA',
   zip_code: '01001'
 )

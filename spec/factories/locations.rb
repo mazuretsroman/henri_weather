@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :location do
     description { 'Kyiv, Ukraine' }
-    country { 'UA' }
+    country_code { 'UA' }
     zip_code { '01001' }
   end
 end
