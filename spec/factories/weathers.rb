@@ -4,5 +4,6 @@ FactoryBot.define do
     temp_min { 1.5 }
     temp_max { 1.5 }
     description { "MyString" }
+    location
   end
 end
