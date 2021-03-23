@@ -26,7 +26,7 @@
     </ul>
 
     <div class="card-body">
-      <%= link_to 'Refresh', refresh_location_path(@location), class: 'card-link' %>
+      <%= link_to 'Refresh', location_path(@location), class: 'card-link' %>
       <%= link_to '℃ / ℉', '#', class: 'card-link', data: { 'toggle-temperature': true } %>
     </div>
   </div>

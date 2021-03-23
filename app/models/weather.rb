@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-class Weather < ApplicationRecord
-  belongs_to :location
-
+class Weather < OpenStruct
   def temp_avg
     return if temp_max.nil? || temp_min.nil?
 

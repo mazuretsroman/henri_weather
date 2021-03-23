@@ -8,10 +8,6 @@ RSpec.describe Location, type: :model do
     it { should validate_presence_of(:zip_code) }
   end
 
-  describe 'relations' do
-    it { should have_many(:weathers) }
-  end
-
   describe 'fabric' do
     it 'is valid' do
       location = build(:location)

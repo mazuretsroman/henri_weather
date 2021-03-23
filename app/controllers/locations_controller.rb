@@ -8,7 +8,7 @@ class LocationsController < ApplicationController
 
   # GET /locations/1 or /locations/1.json
   def show
-    @weather = @location.weathers&.last || Weather.new
+    @weather = BuildWeather.new(location: @location).call
   end
 
   # GET /locations/new
@@ -55,11 +55,6 @@ class LocationsController < ApplicationController
       format.html { redirect_to locations_url, notice: "Location was successfully destroyed." }
       format.json { head :no_content }
     end
-  end
-
-  def refresh
-    SaveWeather.new(location: @location).call
-    redirect_to location_path(@location)
   end
 
   private

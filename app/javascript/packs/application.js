@@ -14,8 +14,6 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-console.log('hello')
-
 $(document).on('turbolinks:load', function (){
     $('[data-toggle-temperature]').on('click', function (event){
         event.preventDefault()

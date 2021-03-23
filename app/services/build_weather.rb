@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SaveWeather
+class BuildWeather
   attr_reader :location
 
   def initialize(location:)
@@ -10,10 +10,8 @@ class SaveWeather
   def call
     return api_response.body if api_response.code != 200
 
-    location.transaction do
-      attributes = weather_attributes(api_response.body)
-      location.weathers.create(attributes)
-    end
+    attributes = weather_attributes(api_response.body)
+    Weather.new(attributes)
   end
 
   private
