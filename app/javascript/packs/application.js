@@ -21,3 +21,5 @@ $(document).on('turbolinks:load', function (){
         $('.js-fahrenheit').toggleClass('hidden')
     })
 })
+
+import "controllers"
