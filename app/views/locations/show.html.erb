@@ -26,7 +26,11 @@
     </ul>
 
     <div class="card-body">
-      <%= link_to 'Refresh', location_path(@location), class: 'card-link' %>
+      <%= link_to 'Refresh',
+                  '#',
+                  class: 'card-link',
+                  data: { reflex: 'click->Weather#show',
+                          location_id: @location.id } %>
       <%= link_to '℃ / ℉', '#', class: 'card-link', data: { 'toggle-temperature': true } %>
     </div>
   </div>
