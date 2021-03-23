@@ -39,7 +39,7 @@ class ParseResponse
   end
 
   def description
-    weather = parse_json.dig('weather')&.last
+    weather = parse_json['weather']&.last
     return '' if weather.blank?
 
     weather['description']

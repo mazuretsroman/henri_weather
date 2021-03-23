@@ -8,10 +8,10 @@ RSpec.describe ParseResponse do
       it 'returns hash attributes' do
         response = File.read('./spec/factories/example_response.json')
         service = described_class.new(response: response)
-        expected = {:temp=>276.43,
-                    :temp_min=>275.15,
-                    :temp_max=>277.59,
-                    :description=>"light rain"}
+        expected = { temp: 276.43,
+                     temp_min: 275.15,
+                     temp_max: 277.59,
+                     description: 'light rain' }
 
         expect(service.call).to eq(expected)
       end

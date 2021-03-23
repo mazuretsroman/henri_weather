@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class LocationsController < ApplicationController
-  before_action :set_location, only: %i[ show edit update destroy refresh ]
+  before_action :set_location, only: %i[show edit update destroy refresh]
 
   # GET /locations or /locations.json
   def index
@@ -12,7 +14,7 @@ class LocationsController < ApplicationController
     if @weather.is_a?(Weather)
     else
       error = @weather
-      @weather = Weather.new(description: JSON(error).dig('message'))
+      @weather = Weather.new(description: JSON(error)['message'])
     end
   end
 
@@ -22,8 +24,7 @@ class LocationsController < ApplicationController
   end
 
   # GET /locations/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /locations or /locations.json
   def create
@@ -31,7 +32,7 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to @location, notice: "Location was successfully created." }
+        format.html { redirect_to @location, notice: 'Location was successfully created.' }
         format.json { render :show, status: :created, location: @location }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +45,7 @@ class LocationsController < ApplicationController
   def update
     respond_to do |format|
       if @location.update(location_params)
-        format.html { redirect_to @location, notice: "Location was successfully updated." }
+        format.html { redirect_to @location, notice: 'Location was successfully updated.' }
         format.json { render :show, status: :ok, location: @location }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,19 +58,20 @@ class LocationsController < ApplicationController
   def destroy
     @location.destroy
     respond_to do |format|
-      format.html { redirect_to locations_url, notice: "Location was successfully destroyed." }
+      format.html { redirect_to locations_url, notice: 'Location was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_location
-      @location = Location.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def location_params
-      params.require(:location).permit(:description, :country_code, :zip_code)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_location
+    @location = Location.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def location_params
+    params.require(:location).permit(:description, :country_code, :zip_code)
+  end
 end

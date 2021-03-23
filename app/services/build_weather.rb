@@ -28,6 +28,6 @@ class BuildWeather
   end
 
   def weather_attributes(response_body)
-    @attrinutes ||= ParseResponse.new(response: response_body).call
+    @weather_attributes ||= ParseResponse.new(response: response_body).call
   end
 end
