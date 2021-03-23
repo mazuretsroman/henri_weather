@@ -9,6 +9,11 @@ class LocationsController < ApplicationController
   # GET /locations/1 or /locations/1.json
   def show
     @weather = BuildWeather.new(location: @location).call
+    if @weather.is_a?(Weather)
+    else
+      error = @weather
+      @weather = Weather.new(description: JSON(error).dig('message'))
+    end
   end
 
   # GET /locations/new
@@ -65,6 +70,6 @@ class LocationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def location_params
-      params.require(:location).permit(:description, :country, :zip_code)
+      params.require(:location).permit(:description, :country_code, :zip_code)
     end
 end
