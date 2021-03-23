@@ -9,6 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
 import "../stylesheets/application"
+import "controllers"
 
 Rails.start()
 Turbolinks.start()
@@ -21,5 +22,3 @@ $(document).on('turbolinks:load', function (){
         $('.js-fahrenheit').toggleClass('hidden')
     })
 })
-
-import "controllers"
