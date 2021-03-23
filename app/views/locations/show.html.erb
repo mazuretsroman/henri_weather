@@ -1,0 +1,37 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @location.description %></h5>
+    <p class="card-text"><%= @weather.description %></p>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <strong>Temp: </strong>
+        <span class="js-celsius"><%= @weather.temp_c %> &#x2103;</span>
+        <span class="js-fahrenheit hidden"><%= @weather.temp_f %> &#x2109;</span>
+      </li>
+      <li class="list-group-item">
+        <strong>Min: </strong>
+        <span class="js-celsius"><%= @weather.temp_min_c %> &#x2103;</span>
+        <span class="js-fahrenheit hidden"><%= @weather.temp_min_f %> &#x2109;</span>
+      </li>
+      <li class="list-group-item">
+        <strong>Max: </strong>
+        <span class="js-celsius"><%= @weather.temp_max_c %> &#x2103;</span>
+        <span class="js-fahrenheit hidden"><%= @weather.temp_max_f %> &#x2109;</span>
+      </li>
+      <li class="list-group-item">
+        <strong>Avg: </strong>
+        <span class="js-celsius"><%= @weather.avg_c %> &#x2103;</span>
+        <span class="js-fahrenheit hidden"><%= @weather.avg_f %> &#x2109;</span>
+      </li>
+    </ul>
+
+    <div class="card-body">
+      <%= link_to 'Refresh',
+                  '#',
+                  class: 'card-link',
+                  data: { reflex: 'click->Weather#show',
+                          location_id: @location.id } %>
+      <%= link_to '℃ / ℉', '#', class: 'card-link', data: { 'toggle-temperature': true } %>
+    </div>
+  </div>
+</div>

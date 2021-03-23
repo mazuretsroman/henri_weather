@@ -7,7 +7,18 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "bootstrap"
+import "../stylesheets/application"
+import "controllers"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+$(document).on('turbolinks:load', function (){
+    $('[data-toggle-temperature]').on('click', function (event){
+        event.preventDefault()
+        $('.js-celsius').toggleClass('hidden')
+        $('.js-fahrenheit').toggleClass('hidden')
+    })
+})
