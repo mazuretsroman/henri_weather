@@ -3,39 +3,31 @@
     <h5 class="card-title"><%= @location.description %></h5>
     <p class="card-text"><%= @weather.description %></p>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><strong>Temp: </strong><%= @weather.temp %></li>
-      <li class="list-group-item"><strong>Min: </strong><%= @weather.temp_min %></li>
-      <li class="list-group-item"><strong>Max: </strong><%= @weather.temp_max %></li>
-      <li class="list-group-item"><strong>Avg: </strong><%= @weather.temp_avg %></li>
+      <li class="list-group-item">
+        <strong>Temp: </strong>
+        <span class="js-celsius"><%= @weather.temp_c %> &#x2103;</span>
+        <span class="js-fahrenheit hidden"><%= @weather.temp_f %> &#x2109;</span>
+      </li>
+      <li class="list-group-item">
+        <strong>Min: </strong>
+        <span class="js-celsius"><%= @weather.temp_min_c %> &#x2103;</span>
+        <span class="js-fahrenheit hidden"><%= @weather.temp_min_f %> &#x2109;</span>
+      </li>
+      <li class="list-group-item">
+        <strong>Max: </strong>
+        <span class="js-celsius"><%= @weather.temp_max_c %> &#x2103;</span>
+        <span class="js-fahrenheit hidden"><%= @weather.temp_max_f %> &#x2109;</span>
+      </li>
+      <li class="list-group-item">
+        <strong>Avg: </strong>
+        <span class="js-celsius"><%= @weather.avg_c %> &#x2103;</span>
+        <span class="js-fahrenheit hidden"><%= @weather.avg_f %> &#x2109;</span>
+      </li>
     </ul>
 
     <div class="card-body">
       <%= link_to 'Refresh', refresh_location_path(@location), class: 'card-link' %>
-      <%= link_to 'Fahrenheit / Celcius', '#', class: 'card-link' %>
+      <%= link_to '℃ / ℉', '#', class: 'card-link', data: { 'toggle-temperature': true } %>
     </div>
   </div>
 </div>
-
-
-
-
-
-<!--<p id="notice"><%#= notice %></p>-->
-
-<!--<p>-->
-<!--  <strong>Description:</strong>-->
-  <%#= @location.description %>
-<!--</p>-->
-
-<!--<p>-->
-<!--  <strong>Country:</strong>-->
-  <%#= @location.country_code %>
-<!--</p>-->
-
-<!--<p>-->
-<!--  <strong>Zip code:</strong>-->
-  <%#= @location.zip_code %>
-<!--</p>-->
-
-<!--<%#= link_to 'Edit', edit_location_path(@location) %> |-->
-<%#= link_to 'Back', locations_path %>
